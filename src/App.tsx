@@ -1,15 +1,16 @@
-import CalendarBoard from 'components/Calendar/CalendarBoard';
-import React, { FC, useState, createContext } from 'react';
+import React, { FC, useState } from 'react';
 
-import { MyDate } from 'types';
+import { YM } from 'dateFormats';
+import CalendarBody from 'components/CalendarBody';
+import CalendarHeader from 'components/CalendarHeader'
 
 const App: FC = () => {
-  const [date, setDate] = useState<MyDate>({year: new Date().getFullYear(), month: new Date().getMonth() + 1});
+  const [ym, setYM] = useState<YM>({year: new Date().getFullYear(), month: new Date().getMonth() + 1});
 
   return (
     <>
-      <MyHeader />
-      <CalendarBoard />
+      <CalendarHeader ym={ym} setYM={setYM} />
+      <CalendarBody />
     </>
   )
 }
