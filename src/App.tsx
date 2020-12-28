@@ -1,17 +1,16 @@
 import React, { FC, useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import { YM } from 'dateFormats';
-import CalendarBody from 'components/CalendarBody';
-import CalendarHeader from 'components/CalendarHeader'
+import SignInScreen from 'components/signControl/Signin';
 
 const App: FC = () => {
-  const [ym, setYM] = useState<YM>({year: new Date().getFullYear(), month: new Date().getMonth() + 1});
 
   return (
-    <>
-      <CalendarHeader ym={ym} setYM={setYM} />
-      <CalendarBody />
-    </>
+    <Switch>
+      <Route exact path='/auth'>
+        <SignInScreen />
+      </Route>
+    </Switch>
   )
 }
 
